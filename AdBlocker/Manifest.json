@@ -1,0 +1,10 @@
+{
+    "name": "DevSage Adblocker",
+    "version": "1.0",
+    "description": "DevSage Adblocker Tutorial",
+    "permissions": ["webRequest", "webRequestBlocking", "<all_urls>"],
+    "background": {
+        "scripts": ["background.js"]
+    },
+    "manifest_version": 2
+}
