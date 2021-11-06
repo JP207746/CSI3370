@@ -1,7 +1,7 @@
 {
-    "name": "DevSage Adblocker",
+    "name": "One Stop ADBlocker",
     "version": "1.0",
-    "description": "DevSage Adblocker Tutorial",
+    "description": "The best adblocker",
     "permissions": ["webRequest", "webRequestBlocking", "<all_urls>"],
     "background": {
         "scripts": ["background.js"]
