@@ -1,26 +1,21 @@
-function readTextFile(callback)
+function createArray(input)
 {
-    var rawFile = new XMLHttpRequest();
-    rawFile.open("GET", "links.rtf", false);
-    rawFile.onreadystatechange = function ()
-    {
-        if(rawFile.readyState === 4)
-        {
-            if(rawFile.status === 200 || rawFile.status == 0)
-            {
-                var allText = rawFile.responseText;
-				var array = allText.split('\\');
-				alert(array);
-                return allText;
-            }
-        }
-    }
-    rawFile.send(null);
-	return null;
+	var arr = input.split('\\\r\n');
+	arr.pop();
+	alert(arr);
+	chrome.webRequest.onBeforeRequest.addListener(	
+		function(details) { return { cancel: true }},
+		{ urls: arr },
+		["blocking"]
+	)
 }
 
-chrome.webRequest.onBeforeRequest.addListener(	
-	function(details) { return { cancel: true }},
-    { urls: readTextFile() },
-    ["blocking"]
-)
+const url = chrome.runtime.getURL('links.txt');
+fetch(url)
+    .then((response) => {
+		if (!response.ok) {
+           throw new Error("HTTP error " + response.status);
+		}
+		return response.text();
+	})
+    .then((str) => createArray(str));
