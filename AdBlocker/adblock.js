@@ -1,6 +1,6 @@
 chrome.webRequest.onBeforeRequest.addListener(
     function(details) {
-        console.log("I am going to block:", details.url)
+        console.log("Block", details.url, "?")
         return {cancel: true}
     },
     {urls: blocked_sites},

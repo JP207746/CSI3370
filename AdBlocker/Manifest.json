@@ -1,13 +1,43 @@
 {
-    "name": "One Stop ADBlocker",
-    "version": "1.0",
-    "description": "The best adblocker",
-    "permissions": ["webRequest", "webRequestBlocking", "<all_urls>"],
-    "background": {
-        "scripts": ["blocked_sites.js", "adblock.js"]
-    },
-	"web_accessible_resources": [
+  "manifest_version": 2,
+
+    "web_accessible_resources": [
 		"test.txt"
 	],
-    "manifest_version": 2
+    
+  "name": "One Stop AdBlocker",
+  "description": "Blocks ad's that appear on sites, right click to remove other undesired items for site. clicked HTML element.",
+  "version": "1.0",
+  "author": "Team Blue",
+
+  "permissions": [
+    "contextMenus",
+    "activeTab","webRequest", "webRequestBlocking", "<all_urls>"
+  ],
+    
+    
+
+  "icons": [{
+    "16": "images/red-x-16.png",
+    "48": "images/red-x-48.png",
+    "128": "images/red-x-128.png"
+  }],
+
+  "background": {
+    "scripts": ["event.js","blocked_sites.js", "adblock.js"],
+    "persistent": true
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["*://*/*"],
+      "js": [
+        "content_script.js"
+      
+      ]
+    
+    
+    }
+  ]
+
 }
