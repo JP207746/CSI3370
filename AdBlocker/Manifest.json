@@ -14,14 +14,6 @@
     "contextMenus",
     "activeTab","webRequest", "webRequestBlocking", "<all_urls>"
   ],
-    
-    
-
-  "icons": [{
-    "16": "images/red-x-16.png",
-    "48": "images/red-x-48.png",
-    "128": "images/red-x-128.png"
-  }],
 
   "background": {
     "scripts": ["event.js","blocked_sites.js", "adblock.js"],
